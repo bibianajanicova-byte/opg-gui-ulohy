@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<HBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="sk.spse.uloha3.declarative.Controller"
-      alignment="CENTER"
-      spacing="20">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 
-    <padding>
-        <Insets topRightBottomLeft="10" />
-    </padding>
+<AnchorPane prefHeight="450.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sk.spse.uloha3.declarative.Controller">
 
-    <Label text="Počítadlo:" />
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
 
-    <TextField fx:id="counterField"
-               text="0"
-               editable="false"
-               style="-fx-padding: 10 20 10 20;" />
+    <children>
+        <Label alignment="CENTER" layoutY="30.0" styleClass="header-label"
+               text="Stredná priemyselná škola elektrotechnická, Prešov"
+               AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
 
-    <Button text="Plus 1"
-            onAction="#incrementCounter" />
-</HBox>
+        <ImageView fx:id="obrazok" fitHeight="180.0" fitWidth="180.0" layoutX="40.0" layoutY="120.0"
+                   pickOnBounds="true" preserveRatio="true" styleClass="logo">
+            <image>
+                <Image url="@img2.png" />
+            </image>
+        </ImageView>
+
+        <VBox layoutX="260.0" layoutY="110.0" prefWidth="450.0" styleClass="text-area-box">
+            <children>
+                <Label wrapText="true" style="-fx-font-size: 15px; -fx-font-family: 'Arial';"
+                       text="Vážení rodičia a milí žiaci základných škôl,&#10;&#10;radi by sme Vás privítali v priestoroch našej školy dňa 10. 02. 2026 (utorok) od 13.00 do 17.00 h na Dni otvorených dverí, kde by sme Vám chceli predstaviť naše študijné odbory." />
+            </children>
+        </VBox>
+
+        <Hyperlink layoutX="260.0" layoutY="300.0" onAction="#openWeb"
+                   styleClass="link-label" text="https://www.spse-po.sk" />
+
+        <Button onAction="#handleClose" styleClass="action-button" text="Beriem na vedomie"
+                AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+    </children>
+</AnchorPane>
