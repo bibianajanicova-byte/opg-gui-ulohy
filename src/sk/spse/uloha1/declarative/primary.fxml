@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<HBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="sk.spse.uloha1.declarative.Controller"
-      alignment="CENTER"
-      spacing="20">
+<VBox id="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.spse.uloha1.declarative.Controller">
+    <children>
+        <HBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="395.0" spacing="20">
 
-    <padding>
-        <Insets topRightBottomLeft="10" />
-    </padding>
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
 
-    <Label text="Počítadlo:" />
+            <Label text="Stupne Celsia:" textFill="#e40404" />
 
-    <TextField fx:id="counterField"
-               text="0"
-               editable="false"
-               style="-fx-padding: 10 20 10 20;" />
-
-    <Button text="Plus 1"
-            onAction="#incrementCounter" />
-</HBox>
+            <TextField fx:id="cField" editable="true" onKeyTyped="#convertCtoF" style="-fx-padding: 10 20 10 20;" text="0" />
+            <Label layoutX="20.0" layoutY="30.0" text="°C" textFill="#d41919" />
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" spacing="20">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+            <children>
+                <Label text="Stupne Farenheita:" textFill="#f22020" />
+                <TextField fx:id="fField" editable="true" onKeyTyped="#convertFtoC" style="-fx-padding: 10 20 10 20;" text="0" />
+                <Label layoutX="56.0" layoutY="30.0" text="°F" textFill="#df1c1c" />
+            </children>
+        </HBox>
+    </children>
+</VBox>
